@@ -1,0 +1,142 @@
+body, p, h1 {
+    margin: 0;
+}
+
+#main-cont {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #CCE4E6;
+    height: 100vh;
+}
+
+#calculator {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: var(--calc-width);
+    height: var(--calc-height);
+    
+    background-color: #abc5e8;
+}
+
+.view-cont {
+    width: var(--calc-width);
+    height: var(--view-height);
+    /*background-color: antiquewhite;*/
+    padding: 15px 0px;
+}
+
+.btns-cont {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+    border-radius: 20px;
+
+    width: var(--calc-width);
+    height: var(--btn-height);
+}
+
+.view-cont {
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px -5px #CDE2F8;
+}
+
+.btns-cont {
+    box-shadow: 0px 20px 10px -5px #59748C;
+}
+
+#footer {
+    text-align: center;
+}
+
+/* Borders */
+#calculator {
+    /*border: 2px solid #9AAECB;*/
+    border-radius: 20px;
+}
+
+/* CASIO & battery*/
+.view-header {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--view-hdr-height);
+    
+    margin-bottom: 7.5px;
+    padding: 0px 20px;
+}
+
+.view-screen {
+    height: var(--view-scrn-height);
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+
+#calc-name {
+    color: #363C41;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#calc-batt {
+    width: var(--batt-width);
+    height: inherit;
+    background-color: #4B4444;
+
+    /* Put into grp later */
+    border-radius: 20px;
+}
+
+#inner-screen {
+    /* Added flex properties to view-screen*/
+    display: flex;
+    flex: 1;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    /* Height config to not exceed screen*/
+    height: inherit;
+    max-height: var(--view-scrn-height);
+
+    border-radius: inherit;
+    background-color: #CFE4E1;
+}
+
+.calc-btn,
+.dark-calc-btn {
+    /*variable width and height*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--calc-btn-width);
+    height: var(--calc-btn-height);
+
+    /*border: 1px solid */
+    border-radius: 20px;
+}
+
+.calc-btn {
+    background-color: #AFC3DE;
+    box-shadow: 0px 0px 2.5px #3E556F;
+}
+
+.dark-calc-btn {
+    background-color: #8BAED4;
+    box-shadow: 0px 0px 2.5px rgb(104, 130, 162);
+}
