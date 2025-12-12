@@ -63,7 +63,7 @@ body, p, h1 {
 
 /* Borders */
 #calculator {
-    
+    /*border: 2px solid #9AAECB;*/
     border-radius: 20px;
 }
 
