@@ -30,13 +30,12 @@ h1 {
     
     background-color: #abc5e8;
 
-    padding: 20px;
 }
 
 .view-cont {
     width: var(--calc-width);
     height: var(--view-height);
-    background-color: black;
+    background-color: antiquewhite;
 }
 
 .btns-cont {
@@ -52,7 +51,28 @@ h1 {
 /* Borders */
 #calculator,
 .view-cont,
-.btns-cont {
+.btns-cont,
+.view-header,
+.view-screen {
     border: 3px solid #9AAECB;
     border-radius: 20px;
+}
+
+/* CASIO & battery*/
+.view-header {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: var(--view-hdr-height);
+}
+
+.view-screen {
+    background-color: #CFE4E1;
+    height: var(--view-scrn-height);
+}
+
+#calc-name {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
