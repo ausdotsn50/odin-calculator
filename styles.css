@@ -1,5 +1,5 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #363C41;
 }
 
@@ -10,31 +10,26 @@ body, p, h1 {
 #main-cont {
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     background-color: #CCE4E6;
     height: 100vh;
 }
 
 #calculator {
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     width: var(--calc-width);
     height: var(--calc-height);
-    
     background-color: #abc5e8;
 }
 
 .view-cont {
+    max-width: var(--calc-width);
     width: var(--calc-width);
     height: var(--view-height);
-    /*background-color: antiquewhite;*/
     padding: 15px 0px;
 }
 
@@ -42,19 +37,16 @@ body, p, h1 {
     display: flex;
     flex: 1;
     flex-wrap: wrap;
-
     justify-content: center;
     align-items: center;
-
     gap: 10px;
     border-radius: 20px;
-
+    
     width: var(--calc-width);
     height: var(--btn-height);
 }
 
 .view-cont {
-    border-radius: 20px;
     box-shadow: 0px 5px 10px -5px #CDE2F8;
 }
 
@@ -67,7 +59,8 @@ body, p, h1 {
 }
 
 /* Borders */
-#calculator {
+#calculator,
+.view-cont {
     /*border: 2px solid #9AAECB;*/
     border-radius: 20px;
 }
@@ -79,20 +72,13 @@ body, p, h1 {
     justify-content: space-between;
     align-items: center;
     height: var(--view-hdr-height);
-    
     margin-bottom: 7.5px;
-    padding: 0px 20px;
-}
-
-.view-screen {
-    height: var(--view-scrn-height);
-    border-radius: 20px;
     padding: 0px 20px;
 }
 
 #calc-name {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 /*
@@ -108,39 +94,14 @@ body, p, h1 {
 }
 */
 
-#inner-screen {
-    /* Added flex properties to view-screen*/
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-
-    justify-content: space-evenly;
-
-    align-items: flex-end;
-
-    /* Height config to not exceed screen*/
-    height: inherit;
-    max-height: var(--view-scrn-height);
-
-    border-radius: inherit;
-    background-color: #CFE4E1;
-
-    padding: 0px 16px;
-}
-
 .calc-btn,
 .dark-calc-btn {
-    /*variable width and height*/
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: var(--calc-btn-width);
     height: var(--calc-btn-height);
-
-    /*border: 1px solid */
     border-radius: 10px;
-
     font-size: 20px;
 }
 
@@ -154,10 +115,45 @@ body, p, h1 {
     box-shadow: 0px 0px 2.5px rgb(104, 130, 162);
 }
 
-#result {
-    font-size: 48px;
+.view-screen {
+    max-width: inherit;
+    height: var(--view-scrn-height);
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+
+#inner-screen {
+    display: flex;
+    flex-wrap: wrap;
+
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    height: inherit;
+    
+    /*max-height: var(--view-scrn-height);*/
+    
+    border-radius: inherit;
+    background-color: #CFE4E1;
+    padding: 0px 16px;
+
+    max-width: 500px;
 }
 
 #calculation {
+    font-size: 48px;
+    word-break: break-all; 
+    max-width: 100%;
+}
+
+#result {
     font-size: 24px;
+    word-break: break-all; 
+    max-width: 100%;
+}
+
+#calculation,
+#result {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
