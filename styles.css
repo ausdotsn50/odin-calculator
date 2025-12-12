@@ -90,8 +90,17 @@ h1 {
 }
 
 #inner-screen {
-    width: inherit;
+    /* Added flex properties to view-screen*/
+    display: flex;
+    flex: 1;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    /* Height config to not exceed screen*/
     height: inherit;
+    max-height: var(--view-scrn-height);
+
     border-radius: inherit;
     background-color: #CFE4E1;
 }
