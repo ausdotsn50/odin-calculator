@@ -1,3 +1,8 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #363C41;
+}
+
 body, p, h1 {
     margin: 0;
 }
@@ -86,27 +91,30 @@ body, p, h1 {
 }
 
 #calc-name {
-    color: #363C41;
     font-size: 30px;
     font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #calc-batt {
     width: var(--batt-width);
-    height: inherit;
-    background-color: #4B4444;
+    height: 40px;
+    background-color: #363C41;
 
     /* Put into grp later */
-    border-radius: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px -5px #59748C;
+
+    opacity: 0.85;
 }
 
 #inner-screen {
     /* Added flex properties to view-screen*/
     display: flex;
     flex: 1;
+    flex-direction: column;
 
-    justify-content: flex-end;
+    justify-content: space-evenly;
+
     align-items: flex-end;
 
     /* Height config to not exceed screen*/
@@ -128,7 +136,9 @@ body, p, h1 {
     height: var(--calc-btn-height);
 
     /*border: 1px solid */
-    border-radius: 20px;
+    border-radius: 10px;
+
+    font-size: 20px;
 }
 
 .calc-btn {
@@ -139,4 +149,12 @@ body, p, h1 {
 .dark-calc-btn {
     background-color: #8BAED4;
     box-shadow: 0px 0px 2.5px rgb(104, 130, 162);
+}
+
+#result {
+    font-size: 48px;
+}
+
+#calculation {
+    font-size: 24px;
 }

@@ -1,19 +1,19 @@
 // Root element
 const root = document.documentElement;
 
-const calcWidth = 500;
+const calcWidth = 450;
 const calcHeight = 600;
 
 const viewHeight = calcHeight * 0.30;
 const btnHeight = calcHeight * 0.70;
 
-const viewHeaderHeight = viewHeight * 0.15;
-const viewScreenHeight = viewHeight * 0.85;
+const viewHeaderHeight = viewHeight * 0.30;
+const viewScreenHeight = viewHeight * 0.70;
 
 const battWidth = calcWidth * 0.30;
 
 const calcBtnWidth = calcWidth * 0.17;
-const calcBtnHeight = btnHeight * 0.17;
+const calcBtnHeight = btnHeight * 0.15;
 
 root.style.setProperty('--calc-width', calcWidth+ 'px');
 root.style.setProperty('--calc-height', calcHeight+ 'px');
