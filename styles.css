@@ -95,17 +95,18 @@ body, p, h1 {
     font-weight: bold;
 }
 
+/*
 #calc-batt {
     width: var(--batt-width);
-    height: 40px;
+    height: 34px;
     background-color: #363C41;
 
-    /* Put into grp later */
+    /* Put into grp later
     border-radius: 10px;
     box-shadow: 0px 5px 10px -5px #59748C;
-
-    opacity: 0.85;
+    opacity: 0.8;
 }
+*/
 
 #inner-screen {
     /* Added flex properties to view-screen*/
@@ -123,6 +124,8 @@ body, p, h1 {
 
     border-radius: inherit;
     background-color: #CFE4E1;
+
+    padding: 0px 16px;
 }
 
 .calc-btn,
