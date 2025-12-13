@@ -61,7 +61,7 @@ function writeInCalc(event) {
     const len = result.textContent.length;
 
     // 13 is the cap
-    if(len === 13 && (input !== 'AC' && input !== 'CE')) {
+    if(len >= 13 && (input !== 'AC' && input !== 'CE')) {
         alert('This calculator can only do so much you know...')
     }
 
@@ -104,7 +104,7 @@ function writeInCalc(event) {
         else if(input === '=' && a !== null && op !== null) {
             if(op === '√') {
                 calculation.textContent = op + a;
-                res = (operate(parseInt(a), op, parseInt(b))).toFixed(2);
+                res = (operate(parseInt(a), op, parseInt(b)));
                 result.textContent = res;
 
                 console.log(a, op, b, res);
@@ -119,7 +119,7 @@ function writeInCalc(event) {
 
             if(a !== null && op !== null && b !== null) {
                 calculation.textContent = a + op + b;
-                res = operate(parseInt(a), op, parseInt(b));
+                res = operate(parseFloat(a), op, parseFloat(b));
                 result.textContent = res;
 
                 console.log(a, op, b, res);
