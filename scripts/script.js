@@ -74,12 +74,12 @@ function writeInCalc(event) {
     // Adding
     if(len === 0 && (digits.includes(input) || input === '√')) {
         result.textContent += input;
-        if(input === '√') {
+        if(input === '√') { // support for first char operator
             op = input;
         }
     }
     else if(len > 0 && len < 13) {
-        if(res !== null && op === null && digits.includes(input)) {
+        if(res !== null && op === null && digits.includes(input)) { // support for input clearing
             allClear();
             result.textContent += input;
             return;
@@ -88,32 +88,55 @@ function writeInCalc(event) {
         // Special operator
         if(op === '√') {
             a = result.textContent.slice(1);
-            //console.log(a);
+            // console.log(a);
         }
 
         // If lower panel contains something
         if(digits.includes(input) && (a === null || b === null)) {
+            if(op === '%') {
+                return;
+            }
             result.textContent += input;
         }
         else if(operators.includes(input) && op === null) {
             a = result.textContent;
             op = input;
             calculation.textContent = a + op;
-            result.textContent = '';
+
+            if(input !== '%') {
+                result.textContent = '';
+            }
+            console.log(a, op);
+            console.log("input: ", input)
         }
+        
         else if(input === '=' && a !== null && op !== null) {
             if(op === '√') {
                 calculation.textContent = op + a;
-                res = (operate(parseInt(a), op, parseInt(b)));
+                res = (operate(parseFloat(a), op, parseFloat(b)));
                 result.textContent = res;
 
-                console.log(a, op, b, res);
+                //console.log(a, op, b, res);
 
                 a = res;
                 op = null;
                 b = null;
                 return;
             }
+            
+            if(op === '%') {
+                // calculation.textContent = a + op;
+                res = (operate(parseFloat(a), op, parseFloat(b)));
+                result.textContent = res;
+
+                //console.log(a, op, b, res);
+
+                a = res;
+                op = null;
+                b = null;
+                return;
+            }
+            
 
             b = result.textContent;
 

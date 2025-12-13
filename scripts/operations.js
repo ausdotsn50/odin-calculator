@@ -11,6 +11,8 @@ function operate(a, op, b) {
             return divide(a, b);
         case '√':
             return sqrt(a);
+        case '%':
+            return percentage(a);
         default:
             break;
     }
@@ -34,6 +36,10 @@ function divide(a, b) {
 
 function sqrt(a) {
     return Math.sqrt(a);
+}
+
+function percentage(a) {
+    return a / 100;
 }
 
 export { operate };
