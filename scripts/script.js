@@ -99,13 +99,10 @@ function writeInCalc(event) {
                 a = res;
                 op = null;
                 b = null;
-                res = null;
             }
 
         }
     }
-
-    
 
     //console.log(len);
 }
