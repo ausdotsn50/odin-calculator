@@ -141,13 +141,13 @@ body, p, h1 {
     max-width: 500px;
 }
 
-#calculation {
+#result {
     font-size: 48px;
     word-break: break-all; 
     max-width: 100%;
 }
 
-#result {
+#calculation {
     font-size: 24px;
     word-break: break-all; 
     max-width: 100%;

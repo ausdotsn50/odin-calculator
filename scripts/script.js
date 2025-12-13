@@ -38,8 +38,8 @@ root.style.setProperty('--inner-limit', innerLimit+ 'px');
 const buttonContainer = document.querySelector('.btns-cont');
 
 // Reference to calc screen
-const result = document.querySelector('#result');
 const calculation = document.querySelector('#calculation');
+const result = document.querySelector('#result');
 
 const btns = [
     '7', '8', '9', '√', '%',
@@ -58,48 +58,31 @@ function writeInCalc(event) {
     event.preventDefault();
 
     const input = event.target.textContent;
-    const len = calculation.textContent.length;
+    const len = result.textContent.length;
 
-    // If the calculation is empty, only allow digits
     if(len === 0 && digits.includes(input)) {
-        calculation.textContent += input;
+        result.textContent += input;
     }
-
-    else if(len > 0 && len <= 14) { // If calculation is not empty
-        if(a !== null && op !== null && b == null) {
-            calculation.textContent = '';
+    else if(len > 0 && len <= 14) {
+        // If lower panel contains something
+        if(digits.includes(input) && (a === null || b === null)) {
+            result.textContent += input;
         }
-
-        if(operators.includes(input)) {
-            a = calculation.textContent;
+        else if(operators.includes(input) && op === null) {
+            a = result.textContent;
             op = input;
-
-            result.textContent = a + op;
-            //calculation.textContent = '';
+            calculation.textContent = a + op;
+            result.textContent = '';
         }
+        else if(input === '=') {
+            b = result.textContent;
+            calculation.textContent = a + op + b;
 
-        if(digits.includes(input)) {
-            calculation.textContent += input;
-            if(a !== null && op !== null) {
-                b = calculation.textContent;
-                result.textContent = a + op + b;
-            }
+            result.textContent = operate(parseInt(a), op, parseInt(b));
         }
     }
 
-    if(a !== null && op !== null && b !== null) {
-        console.log(a);
-        console.log(op);
-        console.log(b);
-
-        if(input === '=') {
-            res = operate(parseInt(a), op, parseInt(b));
-            result.textContent = res;
-        }
-        else if(input === op) {
-            
-        }
-    }
+    //console.log(len);
 }
 
 function addButtons() {
