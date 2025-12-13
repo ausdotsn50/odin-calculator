@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Calculator</title>
-    <script src="script.js" defer></script>
+    <script type="module" src="scripts/script.js" defer></script>
     <link rel="icon" href="https://raw.githubusercontent.com/ausdotsn50/odin-recipes/main/images/odin.png">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,7 +12,7 @@
     <div id="main-cont">
 
         <div id="header">
-            <h1>Heading</h1>
+            <!-- <h1>Heading</h1> -->
         </div>
 
         <!-- Calculator -->
@@ -26,19 +26,26 @@
 
                 <div class="view-screen">
                     <div id="inner-screen">
-                        1234567890
+
+                        <div id="calculation"></div>
+                        <div id="result"></div>
+
                     </div>
                 </div>
             </div>
 
             <!-- Buttons -->
             <div class="btns-cont">
-                
+
             </div>
         </div>
         
     </div>
     <!-- Place footer here -->
-    <div id="footer">Footer</div>
+     <footer id="footer">
+        <p><strong>ausdotsn50</strong></p>
+        <a href="https://github.com/ausdotsn50/odin-calculator" target="__blank"><img id="footer-icon" src="https://raw.githubusercontent.com/ausdotsn50/odin-recipes/main/images/github.svg" alt="github-icon"></a>
+        <p><strong>2025</strong></p>
+    </footer>
 </body>
 </html>
