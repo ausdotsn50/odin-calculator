@@ -27,6 +27,13 @@ body, p, h1 {
 }
 
 .view-cont {
+    display: flex;
+    
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
     max-width: var(--calc-width);
     width: var(--calc-width);
     height: var(--view-height);
@@ -67,11 +74,7 @@ body, p, h1 {
 
 /* CASIO & battery*/
 .view-header {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--view-hdr-height);
+    max-height: var(--view-hdr-height);
     margin-bottom: 7.5px;
     padding: 0px 20px;
 }
@@ -116,23 +119,28 @@ body, p, h1 {
 }
 
 .view-screen {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+
     max-width: inherit;
-    height: var(--view-scrn-height);
+    max-height: var(--view-scrn-height);
+
     border-radius: 20px;
     padding: 0px 20px;
 }
 
 #inner-screen {
     display: flex;
-    flex-wrap: wrap;
-
-    flex: 1;
+    
     flex-direction: column;
+
     justify-content: space-evenly;
     align-items: flex-end;
-    height: inherit;
     
-    /*max-height: var(--view-scrn-height);*/
+    height: inherit;
+    height: var(--view-scrn-height);
     
     border-radius: inherit;
     background-color: #CFE4E1;
@@ -144,13 +152,11 @@ body, p, h1 {
 #result {
     font-size: 48px;
     word-break: break-all; 
-    max-width: 100%;
 }
 
 #calculation {
     font-size: 24px;
     word-break: break-all; 
-    max-width: 100%;
 }
 
 #calculation,
