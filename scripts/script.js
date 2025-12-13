@@ -66,12 +66,16 @@ function writeInCalc(event) {
     }
 
     else if(len > 0 && len <= 14) { // If calculation is not empty
+        if(a !== null && op !== null && b == null) {
+            calculation.textContent = '';
+        }
+
         if(operators.includes(input)) {
             a = calculation.textContent;
             op = input;
 
             result.textContent = a + op;
-            calculation.textContent = '';
+            //calculation.textContent = '';
         }
 
         if(digits.includes(input)) {
@@ -83,12 +87,18 @@ function writeInCalc(event) {
         }
     }
 
-    if((input === '=' || input === op)&& a !== null && op !== null && b !== null) {
+    if(a !== null && op !== null && b !== null) {
         console.log(a);
         console.log(op);
         console.log(b);
-        res = operate(parseInt(a), op, parseInt(b));
-        result.textContent = res;
+
+        if(input === '=') {
+            res = operate(parseInt(a), op, parseInt(b));
+            result.textContent = res;
+        }
+        else if(input === op) {
+            
+        }
     }
 }
 
