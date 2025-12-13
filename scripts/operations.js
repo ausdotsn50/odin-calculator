@@ -9,6 +9,8 @@ function operate(a, op, b) {
             return multiply(a, b);
         case '÷':
             return divide(a, b);
+        case '√':
+            return sqrt(a);
         default:
             break;
     }
@@ -28,6 +30,10 @@ function multiply(a, b) {
 
 function divide(a, b) {
     return b === 0 ? 'Math Error' : a / b;
+}
+
+function sqrt(a) {
+    return Math.sqrt(a);
 }
 
 export { operate };

@@ -6,8 +6,8 @@ const root = document.documentElement;
 const calcWidth = 450;
 const calcHeight = 600;
 
-const viewHeight = calcHeight * 0.30;
-const btnHeight = calcHeight * 0.70;
+const viewHeight = calcHeight * 0.35;
+const btnHeight = calcHeight * 0.65;
 
 const viewHeaderHeight = viewHeight * 0.30;
 const viewScreenHeight = viewHeight * 0.70;
@@ -50,8 +50,8 @@ const btns = [
 
 const digits = btns.filter((curr) => curr >= 0);
 const operators = [
-    '√', '%', 'x', '÷', '+', '-',
-]
+    '%', 'x', '÷', '+', '-',
+];
 
 let a = null, op = null, b = null, res = null;
 function writeInCalc(event) {
@@ -60,20 +60,35 @@ function writeInCalc(event) {
     const input = event.target.textContent;
     const len = result.textContent.length;
 
+    // 13 is the cap
+    if(len === 13 && (input !== 'AC' && input !== 'CE')) {
+        alert('This calculator can only do so much you know...')
+    }
+
     if(input === 'AC') {
         allClear();
     } else if(input === 'CE' && len > 0) {
         result.textContent = result.textContent.slice(0, -1);
     }
 
-    if(len === 0 && digits.includes(input)) {
+    // Adding
+    if(len === 0 && (digits.includes(input) || input === '√')) {
         result.textContent += input;
+        if(input === '√') {
+            op = input;
+        }
     }
-    else if(len > 0 && len <= 14) {
+    else if(len > 0 && len < 13) {
         if(res !== null && op === null && digits.includes(input)) {
             allClear();
             result.textContent += input;
             return;
+        }
+        
+        // Special operator
+        if(op === '√') {
+            a = result.textContent.slice(1);
+            //console.log(a);
         }
 
         // If lower panel contains something
@@ -87,6 +102,19 @@ function writeInCalc(event) {
             result.textContent = '';
         }
         else if(input === '=' && a !== null && op !== null) {
+            if(op === '√') {
+                calculation.textContent = op + a;
+                res = (operate(parseInt(a), op, parseInt(b))).toFixed(2);
+                result.textContent = res;
+
+                console.log(a, op, b, res);
+
+                a = res;
+                op = null;
+                b = null;
+                return;
+            }
+
             b = result.textContent;
 
             if(a !== null && op !== null && b !== null) {
