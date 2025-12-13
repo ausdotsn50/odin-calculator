@@ -86,7 +86,7 @@ function writeInCalc(event) {
             calculation.textContent = a + op;
             result.textContent = '';
         }
-        else if(input === '=') {
+        else if(input === '=' && a !== null && op !== null) {
             b = result.textContent;
 
             if(a !== null && op !== null && b !== null) {
@@ -99,6 +99,7 @@ function writeInCalc(event) {
                 a = res;
                 op = null;
                 b = null;
+                res = null;
             }
 
         }
