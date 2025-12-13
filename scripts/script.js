@@ -70,6 +70,12 @@ function writeInCalc(event) {
         result.textContent += input;
     }
     else if(len > 0 && len <= 14) {
+        if(res !== null && op === null && digits.includes(input)) {
+            allClear();
+            result.textContent += input;
+            return;
+        }
+
         // If lower panel contains something
         if(digits.includes(input) && (a === null || b === null)) {
             result.textContent += input;
@@ -82,9 +88,19 @@ function writeInCalc(event) {
         }
         else if(input === '=') {
             b = result.textContent;
-            calculation.textContent = a + op + b;
 
-            result.textContent = operate(parseInt(a), op, parseInt(b));
+            if(a !== null && op !== null && b !== null) {
+                calculation.textContent = a + op + b;
+                res = operate(parseInt(a), op, parseInt(b));
+                result.textContent = res;
+
+                console.log(a, op, b, res);
+
+                a = res;
+                op = null;
+                b = null;
+            }
+
         }
     }
 
