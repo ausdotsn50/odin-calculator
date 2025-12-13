@@ -38,7 +38,7 @@ root.style.setProperty('--inner-limit', innerLimit+ 'px');
 const buttonContainer = document.querySelector('.btns-cont');
 
 // Reference to calc screen
-const result = null;
+const result = document.querySelector('#result');
 const calculation = document.querySelector('#calculation');
 
 const btns = [
@@ -53,30 +53,42 @@ const operators = [
     '√', '%', 'x', '÷', '+', '-',
 ]
 
-let a = null, op = null, b = null;
+let a = null, op = null, b = null, res = null;
 function writeInCalc(event) {
     event.preventDefault();
 
     const input = event.target.textContent;
     const len = calculation.textContent.length;
 
+    // If the calculation is empty, only allow digits
     if(len === 0 && digits.includes(input)) {
         calculation.textContent += input;
     }
-    else if(digits.includes(input) && len <= 14) {
-        if(a !== null) {
-            b = calculation.textContent;
+
+    else if(len > 0 && len <= 14) { // If calculation is not empty
+        if(operators.includes(input)) {
+            a = calculation.textContent;
+            op = input;
+
+            result.textContent = a + op;
+            calculation.textContent = '';
         }
-        calculation.textContent += input;
-    }
-    else if(operators.includes(input)) {
-        a = calculation.textContent;
-        op = input;
-        calculation.textContent = '';
+
+        if(digits.includes(input)) {
+            calculation.textContent += input;
+            if(a !== null && op !== null) {
+                b = calculation.textContent;
+                result.textContent = a + op + b;
+            }
+        }
     }
 
-    if(a !== null && op !== null && b !== null) {
-        console.log(operate(parseInt(a), op, parseInt(b)));
+    if((input === '=' || input === op)&& a !== null && op !== null && b !== null) {
+        console.log(a);
+        console.log(op);
+        console.log(b);
+        res = operate(parseInt(a), op, parseInt(b));
+        result.textContent = res;
     }
 }
 
