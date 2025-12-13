@@ -49,6 +49,7 @@ const btns = [
 ]
 
 const digits = btns.filter((curr) => curr >= 0);
+digits.push('.');
 const operators = [
     '%', 'x', '÷', '+', '-',
 ];
@@ -59,7 +60,7 @@ function writeInCalc(event) {
 
     const input = event.target.textContent;
     const len = result.textContent.length;
-
+    
     // 13 is the cap
     if(len >= 13 && (input !== 'AC' && input !== 'CE')) {
         alert('This calculator can only do so much you know...')
@@ -69,6 +70,10 @@ function writeInCalc(event) {
         allClear();
     } else if(input === 'CE' && len > 0) {
         result.textContent = result.textContent.slice(0, -1);
+    }
+
+    if(result.textContent.includes('.') && input === '.') {
+        return;
     }
 
     // Adding
@@ -115,8 +120,6 @@ function writeInCalc(event) {
                 calculation.textContent = op + a;
                 res = (operate(parseFloat(a), op, parseFloat(b)));
                 result.textContent = res;
-
-                //console.log(a, op, b, res);
 
                 a = res;
                 op = null;
