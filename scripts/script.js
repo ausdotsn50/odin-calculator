@@ -60,6 +60,12 @@ function writeInCalc(event) {
     const input = event.target.textContent;
     const len = result.textContent.length;
 
+    if(input === 'AC') {
+        allClear();
+    } else if(input === 'CE' && len > 0) {
+        result.textContent = result.textContent.slice(0, -1);
+    }
+
     if(len === 0 && digits.includes(input)) {
         result.textContent += input;
     }
@@ -82,7 +88,15 @@ function writeInCalc(event) {
         }
     }
 
+    
+
     //console.log(len);
+}
+
+function allClear() {
+    a = null, op = null, b = null, res = null;
+    calculation.textContent = '';
+    result.textContent = '';
 }
 
 function addButtons() {
