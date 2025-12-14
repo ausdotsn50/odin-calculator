@@ -12,9 +12,15 @@ const root = document.documentElement;
 let calcWidth = 450;
 let calcHeight = 600;
 
+let resFS = 48;
+let calcFS = 32;
+
 if(width < calcWidth) {
     calcWidth -= 130;
     calcHeight -= 130;
+
+    resFS -= 8;
+    calcFS -= 8;
 }
 
 const viewHeight = calcHeight * 0.35;
@@ -45,6 +51,9 @@ root.style.setProperty('--calc-btn-width', calcBtnWidth+ 'px');
 root.style.setProperty('--calc-btn-height', calcBtnHeight+ 'px');
 
 root.style.setProperty('--inner-limit', innerLimit+ 'px');
+
+root.style.setProperty('--result-fs', resFS+ 'px');
+root.style.setProperty('--calc-fs', calcFS+ 'px');
 
 const buttonContainer = document.querySelector('.btns-cont');
 
