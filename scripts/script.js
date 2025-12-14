@@ -1,10 +1,21 @@
 import { operate } from "./operations.js";
 
+// Source - https://stackoverflow.com/a
+// Posted by Bryan Rieger, modified by community. See post 'Timeline' for change history
+// Retrieved 2025-12-14, License - CC BY-SA 4.0
+
+ var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
 // Root element
 const root = document.documentElement;
 
-const calcWidth = 450;
-const calcHeight = 600;
+let calcWidth = 450;
+let calcHeight = 600;
+
+if(width < calcWidth) {
+    calcWidth -= 130;
+    calcHeight -= 130;
+}
 
 const viewHeight = calcHeight * 0.35;
 const btnHeight = calcHeight * 0.65;
