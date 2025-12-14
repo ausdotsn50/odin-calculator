@@ -13,7 +13,7 @@ let calcWidth = 450;
 let calcHeight = 600;
 
 let resFS = 48;
-let calcFS = 32;
+let calcFS = 24;
 
 if(width < calcWidth) {
     calcWidth -= 130;
@@ -52,7 +52,7 @@ root.style.setProperty('--calc-btn-height', calcBtnHeight+ 'px');
 
 root.style.setProperty('--inner-limit', innerLimit+ 'px');
 
-root.style.setProperty('--result-fs', resFS+ 'px');
+root.style.setProperty('--res-fs', resFS+ 'px');
 root.style.setProperty('--calc-fs', calcFS+ 'px');
 
 const buttonContainer = document.querySelector('.btns-cont');
